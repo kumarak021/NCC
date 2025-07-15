@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCC Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='ncc.css') }}">
+    <script src="https://kit.fontawesome.com/a6ca2ed8e0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="logo-left">
+                <img src="{{ url_for('static', filename='images/ncc logo.png') }}" alt="NCC Logo" class="ncc-logo">
+            </div>
+            <h1 class="title">National Cadet Corps (NCC)</h1>
+            <div class="logo-right">
+                <img src="{{ url_for('static', filename='images/nit logo.png') }}" alt="NIT Logo" class="nit-logo">
+            </div>
+        </div>
+        <nav class="nav-bar">
+
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#" class="nav-link" id="contact-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <img src="{{ url_for('static', filename='images/1000054481.jpg') }}" alt="NCC Group" class="hero-foreground">
+        <div class="hero-text-box">
+            <h2>About NCC</h2>
+            <p>
+                The NCC is a vibrant youth organization, which has made a commendable contribution in producing responsible and patriotic citizens. From a small beginning, today it has grown to the largest youth organization. NCC motivates and trains upcoming generations to render their meaningful contribution towards national integration and development.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Card (hidden by default) -->
+    <div id="contact-card" class="contact-card">
+        <div class="contact-content">
+            <span class="close-btn">&times;</span>
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <p><i class="fas fa-envelope"></i> ncc@example.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> NCC Office, College Campus</p>
+            </div>
+        </div>
+    </div>
+
+   <!-- Latest News Section -->
+<div class="latest-news-section">
+    <h3 class="latest_news">Latest News</h3>
+    <div class="news-container">
+        {% for news in news_items %}
+        <div class="news-item">
+            <h4>{{ news.title }}</h4>
+            {% if news.content %}
+            <h5>{{ news.content }}</h5>
+            {% endif %}
+
+            <div class="news-date">
+                {{ news.date.strftime('%d %B, %Y') }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+    <section class="ncc-info-section" id="about">
+        <div class="info-container">
+            <div class="info-grid">
+                <!-- Organizational Details -->
+                <div class="info-card organizational-details">
+                    <div class="card-icon"><i class="fas fa-building"></i></div>
+                    <h2>Organizational Details</h2>
+                    <ul>
+                        <li><span class="label">Headquarters:</span> <span class="detail">DG NCC, New Delhi</span></li>
+                        <li><span class="label">Ministry:</span> <span class="detail">Defence, Govt of India</span></li>
+                        <li><span class="label">State Directorate:</span> <span class="detail">HR.HP PB & CHD</span></li>
+                        <li><span class="label">Group HQ:</span> <span class="detail">Ambala</span></li>
+                        <li><span class="label">Battalions:</span> <span class="detail">Army (Kurukshetra)<br>Air Force (Karnal)<br>Navy (Faridabad)</span></li>
+                    </ul>
+                </div>
+
+                <!-- NCC Camps -->
+                <div class="info-card ncc-camps">
+                    <div class="card-icon"><i class="fas fa-campground"></i></div>
+                    <h2>NCC Camps</h2>
+                    <p>Cadets are required to participate in two intensive training camps:</p>
+                    <div class="camp-highlights">
+                        <div class="highlight"><i class="fas fa-calendar"></i><span>Duration: 10 days each</span></div>
+                        <div class="highlight"><i class="fas fa-clock"></i><span>Years: 2nd and 3rd</span></div>
+                    </div>
+                    <p class="camp-description">These camps immerse cadets in a disciplined, regimental lifestyle, challenging them physically and mentally to foster comprehensive personal development.</p>
+                </div>
+
+                <!-- Training and Activities -->
+                <div class="info-card training-and-activities">
+                    <div class="card-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h2>Others</h2>
+                    <h3>Training Areas</h3>
+                    <ul><li><span class="label">Physical Training:</span><span class="detail">• Drill • Physical Fitness • Weapon Training • Map Reading</span></li></ul>
+                    <h3>Classroom Lectures</h3>
+                    <ul><li><span class="label">Expert Topics:</span><span class="detail">• Field Craft • Battle Craft • First Aid</span></li></ul>
+                    <h3>Social Activities</h3>
+                    <ul><li><span class="label">Community Engagement:</span><span class="detail">• Tree Plantation • Blood Donation • Disaster Relief • AIDS Awareness • Adult Education • Pulse Polio • Anti-Dowry Awareness • Yoga</span></li></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wings Section -->
+    <div class="wings-section">
+        <div class="wing-box">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Army" class="default-img">
+            </div>
+            <a href="{{ url_for('regular_wing') }}" target="_blank">Army Regular</a>
+        </div>
+
+        <div class="wing-box">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="Navy" class="default-img">
+            </div>
+            <a href="{{ url_for('air') }}" target="_blank">Air Wing</a>
+        </div>
+
+        <div class="wing-box">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/1000054481.jpg') }}" alt="Air Wing" class="default-img">
+            </div>
+            <a href="{{ url_for('fsfs') }}" target="_blank">Army FSFS</a>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="gallery-container">
+            <h2 id="g">Gallery</h2>
+            <div class="gallery-layout">
+                <div class="gallery-box left-box" id="parade">
+                    <h3>Parade</h3>
+                    <p>Experience the discipline and grandeur of our military parades.</p>
+<a href="{{ url_for('gallery') }}" class="gallery-link">
+  Explore
+</a>
+                </div>
+                <div class="gallery-box right-box" id="camp">
+                    <h3>Camp</h3>
+                    <p>Witness life at the military camp, training and teamwork in action.</p>
+                    <a href="camp.html" class="gallery-link">Explore</a>
+                </div>
+                <div class="gallery-image-container">
+                    <img src="{{ url_for('static', filename='images/Gallery_Collage.jpg') }}" alt="Gallery Collage" class="gallery-image">
+                </div>
+                <div class="gallery-box left-box" id="fun">
+                    <h3>Fun</h3>
+                    <p>See how our forces unwind with sports, camaraderie, and adventure.</p>
+                    <a href="fun.html" class="gallery-link">Explore</a>
+                </div>
+                <div class="gallery-box right-box" id="training">
+                    <h3>Training</h3>
+                    <p>Intense training sessions that build strength, skill, and strategy.</p>
+                    <a href="training.html" class="gallery-link">Explore</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="{{ url_for('static', filename='images/ncc logo.png') }}" alt="NCC Logo">
+            </div>
+            <div class="footer-info">
+                <h3>Address</h3>
+                <p>NIT Kurukshetra, Thanesar, Haryana</p>
+                <p><i class="fas fa-envelope"></i> ncc@nitkkr.ac.in</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2025. All rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='ncc.js') }}"></script>
+
+</body>
+</html>
+
+<script>
+fetch('/api/news')
+    .then(res => res.json())
+    .then(data => {
+        const container = document.getElementById("newsItems");
+        container.innerHTML = data.map(item =>
+            `<a href="${item.link}" target="_blank">${item.title}</a>`
+        ).join('');
+    });
+</script>
+

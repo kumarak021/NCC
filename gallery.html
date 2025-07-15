@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NCC Gallery</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f8ff;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .gallery-container {
+      column-count: 4;
+      column-gap: 10px;
+      padding: 20px;
+    }
+
+    .gallery-container img {
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      break-inside: avoid;
+    }
+
+    .gallery-container img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1200px) {
+      .gallery-container {
+        column-count: 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-container {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-container {
+        column-count: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>NCC Photo Gallery</h1>
+</header>
+
+<div class="gallery-container" id="gallery">
+  <!-- Images will be inserted here -->
+</div>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+  <a href="#" class="close">&times;</a>
+  <img id="lightbox-img" src="" alt="Full Image">
+</div>
+
+<script>
+  const imageList = [
+    "{{ url_for('static', filename='images/1.jpg') }}",
+    "{{ url_for('static', filename='images/2.jpg') }}",
+    "{{ url_for('static', filename='images/ano_fsfs.jpg') }}",
+    "{{ url_for('static', filename='images/army.png') }}",
+    "{{ url_for('static', filename='images/manu.jpg') }}",
+    "{{ url_for('static', filename='images/Nit logo.png') }}",
+    "{{ url_for('static', filename='images/ncc logo.png') }}",
+    "{{ url_for('static', filename='images/hero.png') }}"
+    ,"{{ url_for('static', filename='images/Hero final.jpg') }}"
+  ];
+
+  const gallery = document.getElementById('gallery');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  imageList.forEach(url => {
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = url;
+    img.addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+    gallery.appendChild(img);
+  });
+
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target !== lightboxImg) {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

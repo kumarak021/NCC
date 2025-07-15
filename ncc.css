@@ -1,0 +1,1017 @@
+:root {
+    /* Color Palette */
+    --primary-maroon: #800000;
+    --secondary-maroon: #600000;
+    --accent-gold: #FFD700;
+    --background-light: #f5e1c6;
+    --background-dark: #e6c7a1;
+    --text-primary: #333;
+    --text-secondary: #ffffff;
+
+    /* Typography */
+    --font-primary: 'Poppins', Arial, sans-serif;
+    --font-secondary: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+p, span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+
+body {
+    background: linear-gradient(135deg, #f0f4f8, hsl(210, 35%, 91%));
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-size: clamp(16px, 1vw + 1rem, 22px);
+}
+
+h2 {
+    color: white;
+}
+/* Responsive Typography */
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+
+}
+
+
+/* Button Base Styles */
+button, .btn, .gallery-link {
+    padding: 6px 6px; /* Reduced padding */
+    font-size: 14px; /* Smaller font size */
+    min-width: auto; /* Remove minimum width */
+    max-width: 200px; /* Add a max-width to prevent overly long buttons */
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Navigation Button Height Reduction */
+.nav-menu li a {
+    padding: 0.25rem 0.5rem;  /* Reduced from 0.5rem 1rem */
+    line-height: 1.2;        /* Tighter line spacing */
+    font-size: 0.9rem;       /* Slightly smaller font */
+    margin: 0.1rem 0;        /* Reduced vertical margin */
+}
+
+/* For even more compact buttons */
+.compact-nav .nav-menu li a {
+    padding: 0.15rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .nav-menu li a {
+        padding: 0.3rem 1rem; /* Slightly taller for touch */
+    }
+}
+
+/* Gallery Link Specific Adjustments */
+.gallery-link {
+    padding: 5px 8px; /* Even more compact */
+    font-size: 13px;
+}
+
+/* Responsive Button Adjustments */
+@media (max-width: 768px) {
+    button, .btn, .gallery-link {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+/* Hover and Focus States */
+button:hover, .btn:hover, .gallery-link:hover {
+    transform: scale(0.98); /* Slight shrink on hover */
+}
+
+/* Improved Navigation */
+header {
+    background-color: #800000;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+/* Top Bar */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 15px;
+}
+
+.logo-left, .logo-right {
+    width: 120px;  /* Adjust based on your logo size */
+    display: flex;
+    justify-content: center;
+}
+
+.ncc-logo, .nit-logo {
+    height: 100px;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bolder;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Navigation Bar */
+.nav-bar {
+
+    background-color: #600000; /* Slightly darker maroon */
+    padding: 5px 0;
+}
+
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.nav-bar ul li {
+    display: inline;
+}
+
+.nav-bar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-bar ul li a:hover {
+    color: #FFD700;
+}
+
+/* Responsive Design for Navigation */
+@media screen and (max-width: 768px) {
+    .nav-bar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-bar ul li a {
+        padding: 0.2rem 0.5rem; /* More compact on mobile */
+        font-size: 0.8rem;
+    }
+
+}
+
+
+/* Contact Card */
+.contact-card {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.contact-info {
+    margin-top: 1rem;
+}
+
+.contact-info p {
+    margin: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior:auto;
+}
+
+
+
+
+
+
+
+
+/* Navigation Bar
+.nav-bar {
+    background-color: #600000;  Slightly darker maroon
+    padding: 10px 0;
+}
+
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-bar ul li {
+    display: inline;
+}
+
+.nav-bar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-bar ul li a:hover {
+    color: #FFD700;
+}
+*/
+
+
+
+
+
+
+/* Hero Section */
+#hero {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Adjust height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: url('images/1000054481.jpg') center/cover no-repeat;
+
+ /* Background Image */
+}
+
+/* Dark Overlay */
+.hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darken background */
+}
+
+/* Foreground Image (Above Text) */
+.hero-foreground {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+/* Text Box */
+.hero-text-box {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-foreground {
+        width: 90%;
+    }
+
+    .hero-text-box {
+        width: 90%;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-bar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-bar ul li a {
+        padding: 0.2rem 0.5rem; /* More compact on mobile */
+        font-size: 0.8rem;
+    }
+
+    .wings-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wing-box {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+}
+
+/*news section*/
+.latest-news-section {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+}
+.latest_news{
+    color: #800000;
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.news-item {
+    padding: 0.5rem;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.news-item:hover {
+    transform: translateY(-2px);
+}
+
+.news-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.news-item p {
+    color: #34495e;
+    margin-bottom: 0.5rem;
+}
+
+.read-more {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.news-date {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+}
+
+
+
+
+
+
+.ncc-info-section {
+
+    padding: 2rem 1rem;
+}
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.ncc-info-section .info-container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.ncc-info-section .info-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ncc-info-section .info-card {
+    flex: 1;
+    min-width: 0; /* Ensures flex items can shrink below their content size */
+}
+
+/*@media screen and (max-width: 768px) {
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-card {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
+}*/
+@media screen and (max-width: 768px) {
+  .column {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .card-content {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+.info-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-icon {
+    text-align: center;
+    font-size: 3rem;
+    color: #800000;
+    margin-bottom: 1rem;
+}
+
+.info-card h2 {
+    text-align: center;
+    color: #800000;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #800000;
+    padding-bottom: 0.5rem;
+}
+
+.info-card ul {
+    list-style-type: none;
+}
+
+.info-card li {
+    background-color:#cacaca;/*Classic khaki color */
+    color: #4A3C2A; /* Dark brown text for contrast */
+    margin-bottom: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.info-card li .label {
+    color: #6B4423; /* Deep brown for label */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.info-card li .detail {
+    color: #2C1810; /* Very dark brown for detail text */
+}
+
+
+.label {
+    font-weight: bold;
+    color: #600000;
+    margin-right: 0.5rem;
+    min-width: 120px;
+}
+
+.detail {
+    color: #333;
+}
+
+.camp-highlights {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    background-color: #cacaca;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+}
+
+.highlight i {
+    margin-right: 0.5rem;
+    color: #800000;
+}
+
+.camp-description {
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*  #more{
+    background-image: url(more.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+
+}
+#exam{
+    background-image: url(exam.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+
+}
+#od{
+    background-image: url(od.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+}
+
+#Camp{
+    background-image: url(camp.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+}
+#fa{
+    background-image: url(scholar.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+}*/
+
+
+
+
+
+/* Wings Section */
+.wings-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Individual Wing Box */
+.wing-box {
+    width: 500px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Image Container */
+.image-container {
+    position:relative;
+    width: 100%;
+    height: 500px;
+
+}
+
+/* Default Image*/
+.default-img, .hover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+
+
+/* Link Styling */
+a {
+    display: block;
+    margin-top: 15px;
+    color: #FFD700; /* Gold color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/* Centering the Collage */
+.gallery-image-container {
+    grid-column: 2;
+    grid-row: 1 / span 2; /* Span across both rows */
+    text-align: center;
+}
+
+
+
+
+.gallery-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Advanced Hover Effects */
+.gallery-box {
+    border-radius:  10px; ;
+    background-color: #600000;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-box:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-box h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.gallery-box p {
+    font-size: 16px;
+    color: white;
+}
+
+.gallery-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: darkblue;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.gallery-link:hover {
+    background: navy;
+}
+
+/* Container Styling */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* List Styling */
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    font-size: 18px;
+    padding: 8px;
+    background: #1e3a8a;
+    color: white;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+ul li:hover {
+    background: #b22222;
+    transform: scale(1.05);
+}
+
+
+
+/* Section Styling */
+section {
+    padding: 20px 0;
+}
+
+/* Gallery Section */
+#gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-container {
+    background: linear-gradient(to bottom right, #2b5329, #176502);
+
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+
+
+/* Gallery Layout - Adjusting Box Positions */
+.gallery-layout {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Three columns */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 40px; /* Space between elements */
+    align-items: center;
+    justify-items: center;
+}
+
+
+
+
+/* Accessibility Improvements */
+a, button {
+    transition: all 0.3s ease;
+    outline-offset: 3px;
+}
+
+a:focus, button:focus {
+    outline: 2px solid var(--accent-gold);
+}
+
+/* Performance Optimization */
+img {
+    max-width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+img:hover {
+    opacity: 0.9;
+}
+
+
+
+
+
+/* Footer Styling */
+/* Footer Enhancements */
+.footer {
+    background-color: var(--primary-maroon);
+    color: var(--text-secondary);
+    padding: 2rem 0;
+}
+
+.footer-social a {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+    transform: scale(1.2);
+    color: var(--accent-gold);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Logo */
+.footer-logo img {
+    width: 100px; /* Adjust size */
+}
+
+/* Address Section */
+.footer-info {
+    text-align: center;
+}
+
+.footer-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* Social Icons */
+.footer-social a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    color: lightgray;
+}
+
+/*  Footer Styling */
+.footer {
+    background-color: maroon; /* Maroon Background */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Logo */
+.footer-logo img {
+    width: 100px; /* Adjust size */
+}
+
+/* Address Section */
+.footer-info {
+    text-align: center;
+}
+
+.footer-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+/* Social Icons */
+.footer-social a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    color: lightgray;
+}
+
+/* Bottom Footer */
+.footer-bottom {
+    background-color: rgb(100, 0, 0); /* Darker Maroon */
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+
+/*further changes*/
+/* === Global Even Spacing System === */
+:root {
+  --space-unit: 0.5rem; /* Base spacing unit */
+  --space-sm: calc(var(--space-unit) * 0.5); /* 0.25rem */
+  --space-md: var(--space-unit); /* 0.5rem */
+  --space-lg: calc(var(--space-unit) * 2); /* 1rem */
+  --space-xl: calc(var(--space-unit) * 3); /* 1.5rem */
+}
+
+/* Apply consistent spacing to all elements */
+body * + * {
+  margin-top: var(--space-md); /* Consistent vertical rhythm */
+}
+
+/* === Section Spacing === */
+section,
+.ncc-info-section,
+
+.wings-section,
+#gallery,
+.footer,
+.info-card {
+  padding: var(--space-md) 0;
+  margin: var(--space-md) 0;
+}
+
+/* === Compact Components === */
+.wing-box,
+.gallery-box {
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+/* === Typography Spacing === */
+h1, h2, h3, h4 {
+  margin: var(--space-md) 0 var(--space-sm) 0;
+}
+
+p, ul, ol {
+  margin: var(--space-sm) 0;
+}
+
+/* === Grid Gaps === */
+.info-grid,
+.news-container,
+.tag-container {
+  gap: var(--space-sm);
+}
+
+/* === Navigation === */
+.nav-bar ul li {
+  margin: 0 var(--space-sm);
+}
+
+/* === Footer === */
+.footer-container > * {
+  margin: 0 var(--space-md);
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  :root {
+    --space-unit: 0.4rem; /* Slightly tighter on mobile */
+  }
+
+  section, .info-card {
+    padding: var(--space-sm) 0;
+  }
+}

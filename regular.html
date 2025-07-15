@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Regular army wing</title>
+    <script src="https://kit.fontawesome.com/a6ca2ed8e0.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --maroon: #800000;
+            --dark-maroon: #600000;
+            --gold: #FFD700;
+            --light-bg: #f6f7fd;
+            --font: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4f8, hsl(210, 35%, 91%));
+            color: #333;
+        }
+
+        header {
+            background-color: var(--maroon);
+            color: white;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+        }
+
+        .logo-left, .logo-right {
+            width: 100px;
+        }
+
+        .ncc-logo, .nit-logo {
+            height: 70px;
+        }
+
+        .title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .nav-bar {
+            background-color: var(--dark-maroon);
+            padding: 12px 0;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-bar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-bar ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* ANO Section */
+        .ano-section {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px 10%;
+            background-color: #f4f4f4;
+        }
+
+        .ano-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .ano-image img {
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .ano-details {
+            flex: 2;
+            padding: 20px 30px;
+        }
+
+        .ano-details h2 {
+            font-size: 26px;
+            color: var(--maroon);
+        }
+
+        .ano-details h3 {
+            font-size: 18px;
+            color: #444;
+            margin: 10px 0;
+        }
+
+        .ano-details p {
+            font-size: 16px;
+            margin-top: 10px;
+            line-height: 1.7;
+        }
+
+        /* Rank Holders */
+        .rank-holders-container {
+            padding: 60px 10%;
+            background-color: var(--light-bg);
+        }
+
+        .rank-holders-container h3 {
+            text-align: center;
+            font-size: 24px;
+            color: var(--maroon);
+            margin: 40px 0 20px;
+        }
+
+        .rank-holders-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .rank-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            width: 250px;
+            text-align: center;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .rank-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .rank-image img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid var(--maroon);
+        }
+
+        .rank-details h4 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+        }
+
+        .rank-details p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .section-header h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #600000;
+}
+
+.awards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.award-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  width: 280px;
+  text-align: center;
+}
+
+
+        /* Footer */
+        .footer {
+            background-color: var(--maroon);
+            color: white;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 30px 10px;
+        }
+
+        .footer-logo img {
+            width: 100px;
+            border-radius: 8px;
+        }
+
+        .footer-info h3,
+        .footer-social h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            margin: 4px 0;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            background-color: #500000;
+            padding: 12px 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .ano-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ano-details {
+                padding: 20px 0;
+            }
+
+            .rank-holders-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="top-bar">
+            <div class="logo-left">
+                <img src="{{ url_for('static', filename='images/ncc logo.png') }}" alt="NCC Logo" class="ncc-logo">
+            </div>
+            <div class="title">National Cadet Corps (NCC)</div>
+            <div class="logo-right">
+                <img src="{{ url_for('static', filename='images/Nit logo.png') }}" alt="NIT Logo" class="nit-logo">
+            </div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ANO SECTION -->
+    <section class="ano-section" id="about">
+        <div class="ano-image">
+            <img src="{{ url_for('static', filename='images/ano_fsfs.jpg') }}" alt="ANO">
+        </div>
+        <div class="ano-details">
+            <h2>Lt. Shahbuddin</h2>
+            <h3>Associate NCC Officer</h3>
+            <p>Lt. Shahbuddin has been leading the NCC unit at NIT Kurukshetra with dedication and discipline. Under his guidance, cadets have excelled in training, drills, and national-level competitions.</p>
+            <p>He believes in instilling leadership and patriotism in every cadet. His extensive experience in training and mentoring has shaped many cadets into responsible citizens and leaders.</p>
+        </div>
+    </section>
+
+    <!-- RANK HOLDERS SECTION -->
+    <section class="rank-holders-container">
+        <h3>Senior Under Officer</h3>
+        <div class="rank-holders-grid">
+            <div class="rank-card">
+                <div class="rank-image">
+                    <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet">
+                </div>
+                <div class="rank-details">
+                    <h4>Cadet [Name]</h4>
+                    <p>Senior Under Officer</p>
+                    <p>Leading the NCC Unit</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>Under Officers</h3>
+        <div class="rank-holders-grid">
+            <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Under Officer</p>
+                <p>Drill Commander</p>
+            </div>
+        </div>
+        <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Under Officer</p>
+                <p>Admin Coordinator</p>
+            </div>
+        </div>
+        </div>
+
+        <h3>Sergeants</h3>
+        <div class="rank-holders-grid">
+            <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Sergeant</p>
+            </div>
+        </div>
+        <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Sergeant</p>
+            </div>
+        </div>
+        <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Sergeant</p>
+            </div>
+        </div>
+
+        </div>
+
+        <h3>Corporals</h3>
+        <div class="rank-holders-grid">
+
+<div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Corporal</p>
+            </div>
+        </div>
+        <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}"alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Corporal</p>
+            </div>
+        </div>
+        <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Corporal</p>
+            </div>
+        </div>
+        </div>
+
+        <h3>Lance Corporals</h3>
+        <div class="rank-holders-grid">
+
+<div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Lance Corporal</p>
+            </div>
+        </div>
+        <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Lance Corporal</p>
+            </div>
+        </div>
+        <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Lance Corporal</p>
+            </div>
+        </div>
+        <div class="rank-card">
+            <div class="rank-image">
+                <img src="{{ url_for('static', filename='images/manu.jpg') }}" alt="Cadet Name">
+            </div>
+            <div class="rank-details">
+                <h4>Cadet [Name]</h4>
+                <p>Lance Corporal</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="fsfs-achievements">
+  <div class="section-header">
+    <h2>FSFS Wing Achievements</h2>
+  </div>
+  <div class="awards-grid">
+    {% for award in fsfs_awards %}
+    <div class="award-card">
+      <h3>{{ award.title }}</h3>
+      <p><strong>{{ award.recipient }}</strong></p>
+      <p>{{ award.description }}</p>
+      <p><em>{{ award.year }}</em></p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="{{ url_for('static', filename='images/ncc logo.png') }}" alt="NCC Logo">
+            </div>
+            <div class="footer-info">
+                <h3>Address</h3>
+                <p>NIT Kurukshetra, Thanesar, Haryana</p>
+                <p><i class="fas fa-envelope"></i> ncc@nitkkr.ac.in</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2025. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
